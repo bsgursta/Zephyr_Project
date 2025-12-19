@@ -4,6 +4,15 @@
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/drivers/gpio.h>
 
+/* Register Macros*/
+//All 8-bits
+
+#define TSL2591_REG_ENABLE 0x00
+#define TSL2591_REG_CONFIG 0x01
+#define TSL2591_REG_ID 	   0x12
+#define TSL2591_REG_STATUS 0x13
+
+
 //Configuration struct
 struct tsl2951_config {
 	struct i2c_dt_spec sen;
