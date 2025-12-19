@@ -1,0 +1,3 @@
+1) Configure the INT, gpio
+2) Configure the DT binding
+3) Finish the functions
