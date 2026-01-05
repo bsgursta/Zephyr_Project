@@ -1,0 +1,4 @@
+west:
+  command: /usr/local/bin/west build -b nrf5340dk/nrf5340/cpuapp -p always -t menuconfig
+  topdir: /workdir
+  version: 1.2.0
