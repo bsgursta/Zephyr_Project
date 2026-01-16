@@ -1,0 +1,4 @@
+$ west update 
+$ west packages pip --install  -> updates the packages
+
+$ west build    -> call to create folder

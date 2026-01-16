@@ -8,7 +8,7 @@ int main() {
         rnd = sys_rand32_get();
         printk("Random value: %u\r\n",rnd);
     
-        k_sleep(1000);
+        k_sleep(10000);
     }
     return 0;
 }

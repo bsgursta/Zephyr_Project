@@ -2214,6 +2214,16 @@
     null
   ],
   [
+    "CONFIG_NRFX_TWIM",
+    "n",
+    "bool",
+    "y",
+    "select",
+    [
+      "NRFX_TWIM1 && y && !SOC_SERIES_NRF51X && HAS_NRFX"
+    ]
+  ],
+  [
     "CONFIG_NRFX_TWIM0",
     "y",
     "bool",
@@ -2225,9 +2235,11 @@
     "CONFIG_NRFX_TWIM1",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "select",
+    [
+      "I2C_NRFX_TWIM && HAS_HW_NRF_TWIM1 && DT_HAS_NORDIC_NRF_TWIM_ENABLED && I2C_NRFX && I2C"
+    ]
   ],
   [
     "CONFIG_NRFX_TWIM2",
@@ -3594,6 +3606,14 @@
   ],
   [
     "CONFIG_IS_GEN_UICR_IMAGE",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_SOC_NRF53_ANOMALY_47_WORKAROUND",
     "y",
     "bool",
     null,
@@ -5966,9 +5986,88 @@
     "CONFIG_I2C",
     "y",
     "bool",
+    "y",
+    "assign",
+    [
+      "/workdir/my_app/prj.conf",
+      2
+    ]
+  ],
+  [
+    "CONFIG_I2C_CALLBACK",
+    "y",
+    "bool",
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_I2C_RTIO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_TARGET",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_DW_EXTENDED_SUPPORT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_NRFX",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/workdir/zephyr/drivers/i2c/Kconfig.nrfx",
+      8
+    ]
+  ],
+  [
+    "CONFIG_I2C_NRFX_TWIM",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/workdir/zephyr/drivers/i2c/Kconfig.nrfx",
+      24
+    ]
+  ],
+  [
+    "CONFIG_I2C_NRFX_TRANSFER_TIMEOUT",
+    "y",
+    "int",
+    "500",
+    "default",
+    [
+      "/workdir/zephyr/drivers/i2c/Kconfig.nrfx",
+      48
+    ]
+  ],
+  [
+    "CONFIG_I2C_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "/workdir/zephyr/drivers/i2c/Kconfig",
+      173
+    ]
   ],
   [
     "CONFIG_I2S",
@@ -6116,6 +6215,7 @@
     "y",
     "select",
     [
+      "I2C_NRFX && SOC_FAMILY_NORDIC_NRF && MULTITHREADING && I2C",
       "UART_NRFX && (DT_HAS_NORDIC_NRF_UART_ENABLED || DT_HAS_NORDIC_NRF_UARTE_ENABLED) && SERIAL"
     ]
   ],
