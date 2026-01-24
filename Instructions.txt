@@ -1,0 +1,32 @@
+Instructions to Get Zephyr Image working
+
+1. First visit the official docker image repo for Zephyr
+
+    https://github.com/zephyrproject-rtos/docker-image
+
+    - Get all 3 versions of the build base,ci, and dev
+
+2. Perform the default builds in the zephyr project
+    - west init 
+    - west update
+    https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+
+3. Install the nrfjprog and jlink
+
+    - go to the nrf site and get the nrf-tools tar.gz
+    - place it in the /zephyr folder in the container
+    - move the folder to the /opt/nordic folder (create if needed)
+
+    - when extracted point the PATH to the nrfjprog bin and the linkjarm.so for the jlink
+
+4. Install usbutilies
+
+    - I had to go to root to do this
+    - install with sudo
+
+5. Build project flash with west
+
+-- DEBUGGING
+
+Install the cross compilier in /opt
+Point the vscode launch.json to the server in the Jlink folder
