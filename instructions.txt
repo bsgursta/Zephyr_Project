@@ -2,3 +2,12 @@ $ west update
 $ west packages pip --install  -> updates the packages
 
 $ west build    -> call to create folder
+
+The venv is inside the my_app library
+$ source .venv/bin/activate
+
+To build the source with the sample go to /zephyr
+
+$ west build -b nrf5340dk/nrf5340/cpuapp samples/basic/blinky
+
+As for the device field, that should be the device identifier for J-Link - which from what I can see does appear to be either nRF5340_xxAA_APP or nRF5340_xxAA_NET as appropriate.
