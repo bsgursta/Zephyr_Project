@@ -1,4 +1,4 @@
-# Install script for directory: /workdir/zephyr/modules/hal_silabs
+# Install script for directory: /workdir/modules/hal/silabs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

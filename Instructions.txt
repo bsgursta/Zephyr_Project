@@ -30,3 +30,5 @@ Instructions to Get Zephyr Image working
 
 Install the cross compilier in /opt
 Point the vscode launch.json to the server in the Jlink folder
+
+Restart the container if it doesn't work the first time

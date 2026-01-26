@@ -33,10 +33,8 @@
 / {
  #address-cells = <1>;
  #size-cells = <1>;
-
- chosen {};
-
- aliases {};
+ chosen { };
+ aliases { };
 };
 # 4 "/workdir/zephyr/dts/arm/armv8-m.dtsi" 2 3 4
 
@@ -63,7 +61,7 @@
  };
 };
 # 8 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi" 2 3 4
-# 1 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 1 3 4
+# 1 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 1 3 4
 
 
 
@@ -100,25 +98,25 @@
 # 35 "/workdir/zephyr/include/zephyr/sys/util_macro.h" 2 3 4
 # 20 "/workdir/zephyr/include/zephyr/dt-bindings/dt-util.h" 2 3 4
 # 10 "/workdir/zephyr/include/zephyr/dt-bindings/adc/adc.h" 2 3 4
-# 8 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
+# 8 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
+# 1 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-adc.h" 1 3 4
+# 9 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
 # 1 "/workdir/zephyr/include/zephyr/dt-bindings/gpio/gpio.h" 1 3 4
-# 9 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
+# 10 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
 # 1 "/workdir/zephyr/include/zephyr/dt-bindings/i2c/i2c.h" 1 3 4
-# 10 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
+# 11 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
 # 1 "/workdir/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h" 1 3 4
-# 11 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
+# 12 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
 # 1 "/workdir/zephyr/include/zephyr/dt-bindings/pinctrl/nrf-pinctrl.h" 1 3 4
-# 12 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
+# 13 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
 # 1 "/workdir/zephyr/include/zephyr/dt-bindings/pwm/pwm.h" 1 3 4
-# 13 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
-# 1 "/workdir/zephyr/include/zephyr/dt-bindings/sensor/qdec_nrf.h" 1 3 4
-# 14 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
+# 14 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
 
 # 1 "/workdir/zephyr/dts/common/freq.h" 1 3 4
-# 16 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
+# 16 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
 # 1 "/workdir/zephyr/dts/arm/nordic/override.dtsi" 1 3 4
-# 17 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 2 3 4
-# 25 "/workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi" 3 4
+# 17 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 2 3 4
+# 25 "/workdir/zephyr/dts/common/nordic/nrf_common.dtsi" 3 4
 / {
  pinctrl: pin-controller {
 
@@ -130,7 +128,7 @@
 
  rng_hci: entropy_bt_hci {
   compatible = "zephyr,bt-hci-entropy";
-  status = "disabled";
+  status = "okay";
  };
 
  sw_pwm: sw-pwm {
@@ -142,14 +140,6 @@
  };
 };
 # 9 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi" 2 3 4
-# 1 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v3.h" 1 3 4
-# 10 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v3.h" 3 4
-# 1 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v2.h" 1 3 4
-# 10 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v2.h" 3 4
-# 1 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc.h" 1 3 4
-# 11 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v2.h" 2 3 4
-# 11 "/workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v3.h" 2 3 4
-# 10 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi" 2 3 4
 
 / {
  cpus {
@@ -197,16 +187,12 @@
 
   sram0: memory@20000000 {
    compatible = "mmio-sram";
-   #address-cells = <1>;
-   #size-cells = <1>;
   };
 
   peripheral@50000000 {
-   reg = <0x50000000 0x10000000>;
    #address-cells = <1>;
    #size-cells = <1>;
-   ranges = <0x0 0x50000000 0x10000000>,
-     <0x10000000 0x10000000 0x10000000>;
+   ranges = <0x0 0x50000000 0x10000000>;
 
 
 
@@ -218,62 +204,22 @@
 
 
 
-# 1 "/workdir/zephyr/include/zephyr/dt-bindings/regulator/nrf5x.h" 1 3 4
-# 8 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp_peripherals.dtsi" 2 3 4
-
 dcnf: dcnf@0 {
  compatible = "nordic,nrf-dcnf";
  reg = <0x0 0x1000>;
  status = "okay";
 };
 
-oscillators: clock-controller@4000 {
- compatible = "nordic,nrf53-oscillators";
+oscillators: oscillator@4000 {
+ compatible = "nordic,nrf-oscillators";
  reg = <0x4000 0x1000>;
-
- lfxo: lfxo {
-  compatible = "nordic,nrf53-lfxo";
-  #clock-cells = <0>;
-  clock-frequency = <32768>;
- };
-
- hfxo: hfxo {
-  compatible = "nordic,nrf53-hfxo";
-  #clock-cells = <0>;
-  clock-frequency = <(((32) * 1000) * 1000)>;
-  startup-time-us = <1400>;
- };
+ status = "okay";
 };
 
 regulators: regulator@4000 {
- compatible = "nordic,nrf53x-regulators";
+ compatible = "nordic,nrf-regulators";
  reg = <0x4000 0x1000>;
  status = "okay";
- #address-cells = <1>;
- #size-cells = <1>;
-
- vregmain: regulator@4704 {
-  compatible = "nordic,nrf5x-regulator";
-  reg = <0x4704 0x1>;
-  status = "okay";
-  regulator-name = "VREGMAIN";
-  regulator-initial-mode = <0>;
- };
-
- vregradio: regulator@4904 {
-  compatible = "nordic,nrf5x-regulator";
-  reg = <0x4904 0x1>;
-  status = "okay";
-  regulator-name = "VREGRADIO";
-  regulator-initial-mode = <0>;
- };
-
- vregh: regulator@4b00 {
-  compatible = "nordic,nrf53x-regulator-hv";
-  reg = <0x4b00 0x44>;
-  status = "disabled";
-  regulator-name = "VREGH";
- };
 };
 
 clock: clock@5000 {
@@ -331,10 +277,10 @@ i2c0: i2c@8000 {
  #address-cells = <1>;
  #size-cells = <0>;
  reg = <0x8000 0x1000>;
+ clock-frequency = <100000>;
  interrupts = <8 1>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
- zephyr,pm-device-runtime-auto;
 };
 
 spi0: spi@8000 {
@@ -349,7 +295,7 @@ spi0: spi@8000 {
  #size-cells = <0>;
  reg = <0x8000 0x1000>;
  interrupts = <8 1>;
- max-frequency = <(((8) * 1000) * 1000)>;
+ max-frequency = <((8) * 1000 * 1000)>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
 };
@@ -372,10 +318,10 @@ i2c1: i2c@9000 {
  #address-cells = <1>;
  #size-cells = <0>;
  reg = <0x9000 0x1000>;
+ clock-frequency = <100000>;
  interrupts = <9 1>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
- zephyr,pm-device-runtime-auto;
 };
 
 spi1: spi@9000 {
@@ -390,7 +336,7 @@ spi1: spi@9000 {
  #size-cells = <0>;
  reg = <0x9000 0x1000>;
  interrupts = <9 1>;
- max-frequency = <(((8) * 1000) * 1000)>;
+ max-frequency = <((8) * 1000 * 1000)>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
 };
@@ -408,7 +354,7 @@ spi4: spi@a000 {
  #size-cells = <0>;
  reg = <0xa000 0x1000>;
  interrupts = <10 1>;
- max-frequency = <(((32) * 1000) * 1000)>;
+ max-frequency = <((32) * 1000 * 1000)>;
  easydma-maxcnt-bits = <16>;
  rx-delay-supported;
  rx-delay = <2>;
@@ -426,10 +372,10 @@ i2c2: i2c@b000 {
  #address-cells = <1>;
  #size-cells = <0>;
  reg = <0xb000 0x1000>;
+ clock-frequency = <100000>;
  interrupts = <11 1>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
- zephyr,pm-device-runtime-auto;
 };
 
 spi2: spi@b000 {
@@ -444,7 +390,7 @@ spi2: spi@b000 {
  #size-cells = <0>;
  reg = <0xb000 0x1000>;
  interrupts = <11 1>;
- max-frequency = <(((8) * 1000) * 1000)>;
+ max-frequency = <((8) * 1000 * 1000)>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
 };
@@ -467,10 +413,10 @@ i2c3: i2c@c000 {
  #address-cells = <1>;
  #size-cells = <0>;
  reg = <0xc000 0x1000>;
+ clock-frequency = <100000>;
  interrupts = <12 1>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
- zephyr,pm-device-runtime-auto;
 };
 
 spi3: spi@c000 {
@@ -485,7 +431,7 @@ spi3: spi@c000 {
  #size-cells = <0>;
  reg = <0xc000 0x1000>;
  interrupts = <12 1>;
- max-frequency = <(((8) * 1000) * 1000)>;
+ max-frequency = <((8) * 1000 * 1000)>;
  easydma-maxcnt-bits = <16>;
  status = "disabled";
 };
@@ -503,7 +449,6 @@ adc: adc@e000 {
  interrupts = <14 1>;
  status = "disabled";
  #io-channel-cells = <1>;
- zephyr,pm-device-runtime-auto;
 };
 
 timer0: timer@f000 {
@@ -556,7 +501,7 @@ rtc1: rtc@15000 {
  prescaler = <1>;
 };
 
-dppic0: dppic: dppic@17000 {
+dppic: dppic@17000 {
  compatible = "nordic,nrf-dppic";
  reg = <0x17000 0x1000>;
  status = "okay";
@@ -581,10 +526,13 @@ comp: comparator@1a000 {
 
 
 
+
+
  compatible = "nordic,nrf-comp";
  reg = <0x1a000 0x1000>;
  interrupts = <26 1>;
  status = "disabled";
+ #io-channel-cells = <1>;
 };
 
 egu0: egu@1b000 {
@@ -751,6 +699,7 @@ flash_controller: flash-controller@39000 {
  #address-cells = <1>;
  #size-cells = <1>;
 
+
  flash0: flash@0 {
   compatible = "soc-nv-flash";
   erase-block-size = <4096>;
@@ -796,7 +745,7 @@ ieee802154: ieee802154 {
  compatible = "nordic,nrf-ieee802154";
  status = "disabled";
 };
-# 72 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi" 2 3 4
+# 67 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi" 2 3 4
   };
 
 
@@ -831,7 +780,7 @@ ieee802154: ieee802154 {
   };
 
   cryptocell: crypto@50844000 {
-   compatible = "arm,cryptocell-312";
+   compatible = "nordic,cryptocell", "arm,cryptocell-312";
    reg = <0x50844000 0x1000>, <0x50845000 0x1000>;
    reg-names = "wrapper", "core";
    interrupts = <68 1>;
@@ -861,13 +810,8 @@ ipc0: ipc0 {
   status = "okay";
  };
 };
-# 117 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi" 2 3 4
+# 112 "/workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi" 2 3 4
  };
-};
-
-&rng_hci {
-
- status = "okay";
 };
 
 &nvic {
@@ -886,12 +830,12 @@ ipc0: ipc0 {
 
 &sram0 {
  reg = <0x20000000 ((512) * 1024)>;
- ranges = <0x0 0x20000000 ((512) * 1024)>;
 };
 
 / {
  soc {
-  compatible = "simple-bus";
+  compatible = "nordic,nrf5340-cpuapp-qkaa", "nordic,nrf5340-cpuapp",
+        "nordic,nrf53", "simple-bus";
  };
 };
 # 9 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340dk_nrf5340_cpuapp.dts" 2
@@ -901,62 +845,191 @@ ipc0: ipc0 {
 
 
 
-# 1 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340dk_common.dtsi" 1
+# 1 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common-pinctrl.dtsi" 1
 
 
 
 
 
+&pinctrl {
+ i2c1_default: i2c1_default {
+  group1 {
+   psels = <((((((1) * 32U) + (2)) & 0x1FFU) << 0U) | ((12U & 0x7FFFU) << 17U))>,
+    <((((((1) * 32U) + (3)) & 0x1FFU) << 0U) | ((11U & 0x7FFFU) << 17U))>;
+  };
+ };
 
-# 1 "/workdir/zephyr/include/zephyr/dt-bindings/gpio/arduino-header-r3.h" 1 3 4
-# 8 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340dk_common.dtsi" 2
+ i2c1_sleep: i2c1_sleep {
+  group1 {
+   psels = <((((((1) * 32U) + (2)) & 0x1FFU) << 0U) | ((12U & 0x7FFFU) << 17U))>,
+    <((((((1) * 32U) + (3)) & 0x1FFU) << 0U) | ((11U & 0x7FFFU) << 17U))>;
+   low-power-enable;
+  };
+ };
+
+ uart0_default: uart0_default {
+  group1 {
+   psels = <((((((0) * 32U) + (20)) & 0x1FFU) << 0U) | ((0U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (19)) & 0x1FFU) << 0U) | ((2U & 0x7FFFU) << 17U))>;
+  };
+  group2 {
+   psels = <((((((0) * 32U) + (22)) & 0x1FFU) << 0U) | ((1U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (21)) & 0x1FFU) << 0U) | ((3U & 0x7FFFU) << 17U))>;
+   bias-pull-up;
+  };
+ };
+
+ uart0_sleep: uart0_sleep {
+  group1 {
+   psels = <((((((0) * 32U) + (20)) & 0x1FFU) << 0U) | ((0U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (22)) & 0x1FFU) << 0U) | ((1U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (19)) & 0x1FFU) << 0U) | ((2U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (21)) & 0x1FFU) << 0U) | ((3U & 0x7FFFU) << 17U))>;
+   low-power-enable;
+  };
+ };
+
+ pwm0_default: pwm0_default {
+  group1 {
+   psels = <((((((0) * 32U) + (28)) & 0x1FFU) << 0U) | ((22U & 0x7FFFU) << 17U))>;
+  };
+ };
+
+ pwm0_sleep: pwm0_sleep {
+  group1 {
+   psels = <((((((0) * 32U) + (28)) & 0x1FFU) << 0U) | ((22U & 0x7FFFU) << 17U))>;
+   low-power-enable;
+  };
+ };
+
+ qspi_default: qspi_default {
+  group1 {
+   psels = <((((((0) * 32U) + (17)) & 0x1FFU) << 0U) | ((29U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (13)) & 0x1FFU) << 0U) | ((31U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (14)) & 0x1FFU) << 0U) | ((32U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((33U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((34U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (18)) & 0x1FFU) << 0U) | ((30U & 0x7FFFU) << 17U))>;
+   nordic,drive-mode = <3U>;
+  };
+ };
+
+ qspi_sleep: qspi_sleep {
+  group1 {
+   psels = <((((((0) * 32U) + (17)) & 0x1FFU) << 0U) | ((29U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (13)) & 0x1FFU) << 0U) | ((31U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (14)) & 0x1FFU) << 0U) | ((32U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((33U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((34U & 0x7FFFU) << 17U))>;
+   low-power-enable;
+  };
+  group2 {
+   psels = <((((((0) * 32U) + (18)) & 0x1FFU) << 0U) | ((30U & 0x7FFFU) << 17U))>;
+   low-power-enable;
+   bias-pull-up;
+  };
+ };
+
+ uart1_default: uart1_default {
+  group1 {
+   psels = <((((((1) * 32U) + (1)) & 0x1FFU) << 0U) | ((0U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (11)) & 0x1FFU) << 0U) | ((2U & 0x7FFFU) << 17U))>;
+  };
+  group2 {
+   psels = <((((((1) * 32U) + (0)) & 0x1FFU) << 0U) | ((1U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (10)) & 0x1FFU) << 0U) | ((3U & 0x7FFFU) << 17U))>;
+   bias-pull-up;
+  };
+ };
+
+ uart1_sleep: uart1_sleep {
+  group1 {
+   psels = <((((((1) * 32U) + (1)) & 0x1FFU) << 0U) | ((0U & 0x7FFFU) << 17U))>,
+    <((((((1) * 32U) + (0)) & 0x1FFU) << 0U) | ((1U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (11)) & 0x1FFU) << 0U) | ((2U & 0x7FFFU) << 17U))>,
+    <((((((0) * 32U) + (10)) & 0x1FFU) << 0U) | ((3U & 0x7FFFU) << 17U))>;
+   low-power-enable;
+  };
+ };
+
+ spi4_default: spi4_default {
+  group1 {
+   psels = <((((((1) * 32U) + (15)) & 0x1FFU) << 0U) | ((4U & 0x7FFFU) << 17U))>,
+    <((((((1) * 32U) + (14)) & 0x1FFU) << 0U) | ((6U & 0x7FFFU) << 17U))>,
+    <((((((1) * 32U) + (13)) & 0x1FFU) << 0U) | ((5U & 0x7FFFU) << 17U))>;
+  };
+ };
+
+ spi4_sleep: spi4_sleep {
+  group1 {
+   psels = <((((((1) * 32U) + (15)) & 0x1FFU) << 0U) | ((4U & 0x7FFFU) << 17U))>,
+    <((((((1) * 32U) + (14)) & 0x1FFU) << 0U) | ((6U & 0x7FFFU) << 17U))>,
+    <((((((1) * 32U) + (13)) & 0x1FFU) << 0U) | ((5U & 0x7FFFU) << 17U))>;
+   low-power-enable;
+  };
+ };
+
+};
+# 7 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common.dtsi" 2
+
 
 / {
+
+ chosen {
+  zephyr,console = &uart0;
+  zephyr,shell-uart = &uart0;
+  zephyr,uart-mcumgr = &uart0;
+  zephyr,bt-mon-uart = &uart0;
+  zephyr,bt-c2h-uart = &uart0;
+  zephyr,bt-hci = &bt_hci_ipc0;
+  nordic,802154-spinel-ipc = &ipc0;
+  zephyr,ieee802154 = &ieee802154;
+ };
+
  leds {
   compatible = "gpio-leds";
-
   led0: led_0 {
    gpios = <&gpio0 28 (1 << 0)>;
    label = "Green LED 0";
   };
-
   led1: led_1 {
    gpios = <&gpio0 29 (1 << 0)>;
    label = "Green LED 1";
   };
-
   led2: led_2 {
    gpios = <&gpio0 30 (1 << 0)>;
    label = "Green LED 2";
   };
-
   led3: led_3 {
    gpios = <&gpio0 31 (1 << 0)>;
    label = "Green LED 3";
   };
  };
 
+ pwmleds {
+  compatible = "pwm-leds";
+  pwm_led0: pwm_led_0 {
+   pwms = <&pwm0 0 (((20) * 1000UL) * 1000UL) (1 << 0)>;
+  };
+ };
+
  buttons {
   compatible = "gpio-keys";
-
   button0: button_0 {
    gpios = <&gpio0 23 ((1 << 4) | (1 << 0))>;
    label = "Push button 1";
    zephyr,code = <11>;
   };
-
   button1: button_1 {
    gpios = <&gpio0 24 ((1 << 4) | (1 << 0))>;
    label = "Push button 2";
    zephyr,code = <2>;
   };
-
   button2: button_2 {
    gpios = <&gpio0 8 ((1 << 4) | (1 << 0))>;
    label = "Push button 3";
    zephyr,code = <3>;
   };
-
   button3: button_3 {
    gpios = <&gpio0 9 ((1 << 4) | (1 << 0))>;
    label = "Push button 4";
@@ -993,172 +1066,6 @@ ipc0: ipc0 {
       <21 0 &gpio1 3 0>;
  };
 
-
- aliases {
-  led0 = &led0;
-  led1 = &led1;
-  led2 = &led2;
-  led3 = &led3;
-  sw0 = &button0;
-  sw1 = &button1;
-  sw2 = &button2;
-  sw3 = &button3;
-  mcuboot-button0 = &button0;
-  mcuboot-led0 = &led0;
- };
-};
-# 7 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common.dtsi" 2
-# 1 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common-pinctrl.dtsi" 1
-
-
-
-
-
-&pinctrl {
- i2c1_default: i2c1_default {
-  group1 {
-   psels = <((((((1) * 32U) + (2)) & 0x1FFU) << 0U) | ((12U & 0xFFU) << 24U))>,
-    <((((((1) * 32U) + (3)) & 0x1FFU) << 0U) | ((11U & 0xFFU) << 24U))>;
-  };
- };
-
- i2c1_sleep: i2c1_sleep {
-  group1 {
-   psels = <((((((1) * 32U) + (2)) & 0x1FFU) << 0U) | ((12U & 0xFFU) << 24U))>,
-    <((((((1) * 32U) + (3)) & 0x1FFU) << 0U) | ((11U & 0xFFU) << 24U))>;
-   low-power-enable;
-  };
- };
-
- uart0_default: uart0_default {
-  group1 {
-   psels = <((((((0) * 32U) + (20)) & 0x1FFU) << 0U) | ((0U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (19)) & 0x1FFU) << 0U) | ((2U & 0xFFU) << 24U))>;
-  };
-
-  group2 {
-   psels = <((((((0) * 32U) + (22)) & 0x1FFU) << 0U) | ((1U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (21)) & 0x1FFU) << 0U) | ((3U & 0xFFU) << 24U))>;
-   bias-pull-up;
-  };
- };
-
- uart0_sleep: uart0_sleep {
-  group1 {
-   psels = <((((((0) * 32U) + (20)) & 0x1FFU) << 0U) | ((0U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (22)) & 0x1FFU) << 0U) | ((1U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (19)) & 0x1FFU) << 0U) | ((2U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (21)) & 0x1FFU) << 0U) | ((3U & 0xFFU) << 24U))>;
-   low-power-enable;
-  };
- };
-
- pwm0_default: pwm0_default {
-  group1 {
-   psels = <((((((0) * 32U) + (28)) & 0x1FFU) << 0U) | ((22U & 0xFFU) << 24U))>;
-  };
- };
-
- pwm0_sleep: pwm0_sleep {
-  group1 {
-   psels = <((((((0) * 32U) + (28)) & 0x1FFU) << 0U) | ((22U & 0xFFU) << 24U))>;
-   low-power-enable;
-  };
- };
-
- qspi_default: qspi_default {
-  group1 {
-   psels = <((((((0) * 32U) + (17)) & 0x1FFU) << 0U) | ((29U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (13)) & 0x1FFU) << 0U) | ((31U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (14)) & 0x1FFU) << 0U) | ((32U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((33U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((34U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (18)) & 0x1FFU) << 0U) | ((30U & 0xFFU) << 24U))>;
-   nordic,drive-mode = <3U>;
-  };
- };
-
- qspi_sleep: qspi_sleep {
-  group1 {
-   psels = <((((((0) * 32U) + (17)) & 0x1FFU) << 0U) | ((29U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (13)) & 0x1FFU) << 0U) | ((31U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (14)) & 0x1FFU) << 0U) | ((32U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((33U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((34U & 0xFFU) << 24U))>;
-   low-power-enable;
-  };
-
-  group2 {
-   psels = <((((((0) * 32U) + (18)) & 0x1FFU) << 0U) | ((30U & 0xFFU) << 24U))>;
-   low-power-enable;
-   bias-pull-up;
-  };
- };
-
- uart1_default: uart1_default {
-  group1 {
-   psels = <((((((1) * 32U) + (1)) & 0x1FFU) << 0U) | ((0U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (11)) & 0x1FFU) << 0U) | ((2U & 0xFFU) << 24U))>;
-  };
-
-  group2 {
-   psels = <((((((1) * 32U) + (0)) & 0x1FFU) << 0U) | ((1U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (10)) & 0x1FFU) << 0U) | ((3U & 0xFFU) << 24U))>;
-   bias-pull-up;
-  };
- };
-
- uart1_sleep: uart1_sleep {
-  group1 {
-   psels = <((((((1) * 32U) + (1)) & 0x1FFU) << 0U) | ((0U & 0xFFU) << 24U))>,
-    <((((((1) * 32U) + (0)) & 0x1FFU) << 0U) | ((1U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (11)) & 0x1FFU) << 0U) | ((2U & 0xFFU) << 24U))>,
-    <((((((0) * 32U) + (10)) & 0x1FFU) << 0U) | ((3U & 0xFFU) << 24U))>;
-   low-power-enable;
-  };
- };
-
- spi4_default: spi4_default {
-  group1 {
-   psels = <((((((1) * 32U) + (15)) & 0x1FFU) << 0U) | ((4U & 0xFFU) << 24U))>,
-    <((((((1) * 32U) + (14)) & 0x1FFU) << 0U) | ((6U & 0xFFU) << 24U))>,
-    <((((((1) * 32U) + (13)) & 0x1FFU) << 0U) | ((5U & 0xFFU) << 24U))>;
-   nordic,drive-mode = <3U>;
-  };
- };
-
- spi4_sleep: spi4_sleep {
-  group1 {
-   psels = <((((((1) * 32U) + (15)) & 0x1FFU) << 0U) | ((4U & 0xFFU) << 24U))>,
-    <((((((1) * 32U) + (14)) & 0x1FFU) << 0U) | ((6U & 0xFFU) << 24U))>,
-    <((((((1) * 32U) + (13)) & 0x1FFU) << 0U) | ((5U & 0xFFU) << 24U))>;
-   low-power-enable;
-  };
- };
-};
-# 8 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common.dtsi" 2
-
-
-/ {
- chosen {
-  zephyr,console = &uart0;
-  zephyr,shell-uart = &uart0;
-  zephyr,uart-mcumgr = &uart0;
-  zephyr,bt-mon-uart = &uart0;
-  zephyr,bt-c2h-uart = &uart0;
-  zephyr,bt-hci = &bt_hci_ipc0;
-  nordic,802154-spinel-ipc = &ipc0;
-  zephyr,ieee802154 = &ieee802154;
- };
-
- pwmleds {
-  compatible = "pwm-leds";
-
-  pwm_led0: pwm_led_0 {
-   pwms = <&pwm0 0 (((20) * 1000UL) * 1000UL) (1 << 0)>;
-  };
- };
-
  arduino_adc: analog-connector {
   compatible = "arduino,uno-adc";
   #io-channel-cells = <1>;
@@ -1173,7 +1080,6 @@ ipc0: ipc0 {
  gpio_fwd: nrf-gpio-forwarder {
   compatible = "nordic,nrf-gpio-forwarder";
   status = "okay";
-
   uart {
    gpios = <&gpio1 1 0>, <&gpio1 0 0>, <&gpio0 11 0>, <&gpio0 10 0>;
   };
@@ -1181,33 +1087,23 @@ ipc0: ipc0 {
 
 
  aliases {
+  led0 = &led0;
+  led1 = &led1;
+  led2 = &led2;
+  led3 = &led3;
   pwm-led0 = &pwm_led0;
+  sw0 = &button0;
+  sw1 = &button1;
+  sw2 = &button2;
+  sw3 = &button3;
+  bootloader-led0 = &led0;
+  mcuboot-button0 = &button0;
+  mcuboot-led0 = &led0;
   watchdog0 = &wdt0;
  };
 };
 
-&vregmain {
- regulator-initial-mode = <1>;
-};
-
-&vregradio {
- regulator-initial-mode = <1>;
-};
-
-&vregh {
- status = "okay";
-};
-
-&lfxo {
- load-capacitors = "internal";
- load-capacitance-picofarad = <7>;
-};
-
 &adc {
- status = "okay";
-};
-
-&nfct {
  status = "okay";
 };
 
@@ -1251,7 +1147,6 @@ ipc0: ipc0 {
  pinctrl-0 = <&qspi_default>;
  pinctrl-1 = <&qspi_sleep>;
  pinctrl-names = "default", "sleep";
-
  mx25r64: mx25r6435f@0 {
   compatible = "nordic,qspi-nor";
   reg = <0>;
@@ -1261,10 +1156,12 @@ ipc0: ipc0 {
   readoc = "read4io";
   sck-frequency = <8000000>;
   jedec-id = [c2 28 17];
-  sfdp-bfp = [e5 20 f1 ff ff ff ff 03 44 eb 08 6b 08 3b 04 bb
-       ee ff ff ff ff ff 00 ff ff ff 00 ff 0c 20 0f 52
-       10 d8 00 ff 23 72 f5 00 82 ed 04 cc 44 83 68 44
-       30 b0 30 b0 f7 c4 d5 5c 00 be 29 ff f0 d0 ff ff];
+  sfdp-bfp = [
+   e5 20 f1 ff ff ff ff 03 44 eb 08 6b 08 3b 04 bb
+   ee ff ff ff ff ff 00 ff ff ff 00 ff 0c 20 0f 52
+   10 d8 00 ff 23 72 f5 00 82 ed 04 cc 44 83 68 44
+   30 b0 30 b0 f7 c4 d5 5c 00 be 29 ff f0 d0 ff ff
+  ];
   size = <67108864>;
   has-dpd;
   t-enter-dpd = <10000>;
@@ -1291,6 +1188,37 @@ arduino_spi: &spi4 {
  pinctrl-names = "default", "sleep";
 };
 
+&flash0 {
+
+ partitions {
+  compatible = "fixed-partitions";
+  #address-cells = <1>;
+  #size-cells = <1>;
+
+  boot_partition: partition@0 {
+   label = "mcuboot";
+   reg = <0x00000000 0x00010000>;
+  };
+  slot0_partition: partition@10000 {
+   label = "image-0";
+  };
+  slot0_ns_partition: partition@50000 {
+   label = "image-0-nonsecure";
+  };
+  slot1_partition: partition@80000 {
+   label = "image-1";
+  };
+  slot1_ns_partition: partition@c0000 {
+   label = "image-1-nonsecure";
+  };
+
+  storage_partition: partition@f8000 {
+   label = "storage";
+   reg = <0x000f8000 0x00008000>;
+  };
+ };
+};
+
 &ieee802154 {
  status = "okay";
 };
@@ -1299,6 +1227,81 @@ zephyr_udc0: &usbd {
  compatible = "nordic,nrf-usbd";
  status = "okay";
 };
+
+/ {
+
+ reserved-memory {
+  #address-cells = <1>;
+  #size-cells = <1>;
+  ranges;
+
+  sram0_image: image@20000000 {
+
+  };
+
+  sram0_s: image_s@20000000 {
+
+  };
+
+  sram0_ns: image_ns@20040000 {
+
+  };
+ };
+};
+
+
+# 1 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_partition_conf.dtsi" 1
+# 24 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_partition_conf.dtsi"
+&slot0_partition {
+ reg = <0x00010000 0x40000>;
+};
+
+&slot0_ns_partition {
+ reg = <0x00050000 0x30000>;
+};
+
+&slot1_partition {
+ reg = <0x00080000 0x40000>;
+};
+
+&slot1_ns_partition {
+ reg = <0x000c0000 0x30000>;
+};
+# 47 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_partition_conf.dtsi"
+&sram0_image {
+ reg = <0x20000000 ((448) * 1024)>;
+};
+
+&sram0_s {
+ reg = <0x20000000 0x40000>;
+};
+
+&sram0_ns {
+ reg = <0x20040000 0x30000>;
+};
+
+
+# 1 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_shared_sram_planning_conf.dtsi" 1
+# 14 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_shared_sram_planning_conf.dtsi"
+/ {
+ chosen {
+
+  zephyr,ipc_shm = &sram0_shared;
+ };
+
+ reserved-memory {
+  #address-cells = <1>;
+  #size-cells = <1>;
+  ranges;
+
+  sram0_shared: memory@20070000 {
+
+   reg = <0x20070000 0x10000>;
+  };
+ };
+};
+# 61 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_partition_conf.dtsi" 2
+# 287 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common.dtsi" 2
 # 10 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340dk_nrf5340_cpuapp.dts" 2
 
 / {
@@ -1311,106 +1314,9 @@ zephyr_udc0: &usbd {
   zephyr,code-partition = &slot0_partition;
   zephyr,sram-secure-partition = &sram0_s;
   zephyr,sram-non-secure-partition = &sram0_ns;
-  zephyr,boot-mode = &boot_mode0;
  };
 };
-
-&gpregret1 {
- status = "okay";
-
- boot_mode0: boot_mode@0 {
-  compatible = "zephyr,retention";
-  status = "okay";
-  reg = <0x0 0x1>;
- };
-};
-
-
-# 1 "/workdir/zephyr/dts/vendor/nordic/nrf5340_cpuapp_partition.dtsi" 1 3 4
-# 10 "/workdir/zephyr/dts/vendor/nordic/nrf5340_cpuapp_partition.dtsi" 3 4
-&flash0 {
- partitions {
-  compatible = "fixed-partitions";
-  #address-cells = <1>;
-  #size-cells = <1>;
-
-  boot_partition: partition@0 {
-   label = "mcuboot";
-   reg = <0x00000000 0x10000>;
-  };
-
-  slot0_partition: partition@10000 {
-   label = "image-0";
-   reg = <0x00010000 0x74000>;
-  };
-
-  slot1_partition: partition@84000 {
-   label = "image-1";
-   reg = <0x00084000 0x74000>;
-  };
-
-  storage_partition: partition@f8000 {
-   label = "storage";
-   reg = <0x000f8000 0x00008000>;
-  };
- };
-};
-
-# 1 "/workdir/zephyr/dts/vendor/nordic/nrf5340_sram_partition.dtsi" 1 3 4
-
-
-
-
-
-
-&sram0 {
-# 16 "/workdir/zephyr/dts/vendor/nordic/nrf5340_sram_partition.dtsi" 3 4
- sram0_image: sram@0 {
-
-  reg = <0x0 ((448) * 1024)>;
-  ranges = <0x0 0x0 0x70000>;
-  #address-cells = <1>;
-  #size-cells = <1>;
-
-  sram0_s: sram0_image@0 {
-
-   reg = <0x0 0x40000>;
-  };
- };
-
-
-
-
-
- sram0_ns: sram@40000 {
-
-  reg = <0x40000 0x40000>;
-  ranges = <0x0 0x40000 0x40000>;
-  #address-cells = <1>;
-  #size-cells = <1>;
-
-  sram0_ns_app: sram0_ns@0 {
-
-   reg = <0x0 0x30000>;
-  };
- };
-};
-# 39 "/workdir/zephyr/dts/vendor/nordic/nrf5340_cpuapp_partition.dtsi" 2 3 4
-# 1 "/workdir/zephyr/dts/vendor/nordic/nrf5340_shared_sram_partition.dtsi" 1 3 4
-# 20 "/workdir/zephyr/dts/vendor/nordic/nrf5340_shared_sram_partition.dtsi" 3 4
-/ {
- chosen {
-  zephyr,ipc_shm = &sram0_shared;
- };
-};
-
-&sram0 {
- sram0_shared: sram@70000 {
-
-  reg = <0x70000 0x10000>;
- };
-};
-# 40 "/workdir/zephyr/dts/vendor/nordic/nrf5340_cpuapp_partition.dtsi" 2 3 4
-# 37 "/workdir/zephyr/boards/nordic/nrf5340dk/nrf5340dk_nrf5340_cpuapp.dts" 2
+# 0 "<command-line>" 2
+# 1 "/workdir/my_app/app.overlay" 1
 # 0 "<command-line>" 2
 # 1 "/workdir/zephyr/misc/empty_file.c"

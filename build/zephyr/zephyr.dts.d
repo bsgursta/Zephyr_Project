@@ -5,7 +5,7 @@ empty_file.o: /workdir/zephyr/misc/empty_file.c \
  /workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp.dtsi \
  /workdir/zephyr/dts/arm/armv8-m.dtsi \
  /workdir/zephyr/dts/common/skeleton.dtsi \
- /workdir/zephyr/dts/vendor/nordic/nrf_common.dtsi \
+ /workdir/zephyr/dts/common/nordic/nrf_common.dtsi \
  /workdir/zephyr/include/zephyr/dt-bindings/adc/adc.h \
  /workdir/zephyr/include/zephyr/dt-bindings/dt-util.h \
  /workdir/zephyr/include/zephyr/sys/util_macro.h \
@@ -16,24 +16,18 @@ empty_file.o: /workdir/zephyr/misc/empty_file.c \
  /workdir/zephyr/include/zephyr/sys/util_internal_util_inc.h \
  /workdir/zephyr/include/zephyr/sys/util_internal_util_dec.h \
  /workdir/zephyr/include/zephyr/sys/util_internal_util_x2.h \
+ /workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-adc.h \
  /workdir/zephyr/include/zephyr/dt-bindings/gpio/gpio.h \
  /workdir/zephyr/include/zephyr/dt-bindings/i2c/i2c.h \
  /workdir/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h \
  /workdir/zephyr/include/zephyr/dt-bindings/pinctrl/nrf-pinctrl.h \
  /workdir/zephyr/include/zephyr/dt-bindings/pwm/pwm.h \
- /workdir/zephyr/include/zephyr/dt-bindings/sensor/qdec_nrf.h \
  /workdir/zephyr/dts/common/freq.h \
  /workdir/zephyr/dts/arm/nordic/override.dtsi \
- /workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v3.h \
- /workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc-v2.h \
- /workdir/zephyr/include/zephyr/dt-bindings/adc/nrf-saadc.h \
  /workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp_peripherals.dtsi \
- /workdir/zephyr/include/zephyr/dt-bindings/regulator/nrf5x.h \
  /workdir/zephyr/dts/arm/nordic/nrf5340_cpuapp_ipc.dtsi \
  /workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common.dtsi \
- /workdir/zephyr/boards/nordic/nrf5340dk/nrf5340dk_common.dtsi \
- /workdir/zephyr/include/zephyr/dt-bindings/gpio/arduino-header-r3.h \
  /workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_common-pinctrl.dtsi \
- /workdir/zephyr/dts/vendor/nordic/nrf5340_cpuapp_partition.dtsi \
- /workdir/zephyr/dts/vendor/nordic/nrf5340_sram_partition.dtsi \
- /workdir/zephyr/dts/vendor/nordic/nrf5340_shared_sram_partition.dtsi
+ /workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_cpuapp_partition_conf.dtsi \
+ /workdir/zephyr/boards/nordic/nrf5340dk/nrf5340_shared_sram_planning_conf.dtsi \
+ /workdir/my_app/app.overlay

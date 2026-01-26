@@ -1,11 +1,11 @@
 # Available runners configured by board.cmake.
 runners:
-- nrfutil
 - nrfjprog
+- nrfutil
 - jlink
 
 # Default flash runner if --runner is not given.
-flash-runner: nrfutil
+flash-runner: nrfjprog
 
 # Default debug runner if --runner is not given.
 debug-runner: jlink
@@ -25,9 +25,10 @@ config:
 
 # Runner specific arguments
 args:
-  nrfutil:
-    - --ext-mem-config-file=/workdir/zephyr/boards/nordic/nrf5340dk/support/nrf5340dk_qspi_nrfutil_config.json
   nrfjprog:
+    []
+
+  nrfutil:
     []
 
   jlink:

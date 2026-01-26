@@ -22,12 +22,6 @@ config ZEPHYR_CMSIS_NN_MODULE
 	bool
 	default y
 endmenu
-menu "cmsis_6 (/workdir/modules/hal/cmsis_6)"
-osource "$(ZEPHYR_CMSIS_6_KCONFIG)"
-config ZEPHYR_CMSIS_6_MODULE
-	bool
-	default y
-endmenu
 menu "fatfs (/workdir/modules/fs/fatfs)"
 osource "$(ZEPHYR_FATFS_KCONFIG)"
 config ZEPHYR_FATFS_MODULE
@@ -35,17 +29,11 @@ config ZEPHYR_FATFS_MODULE
 	default y
 endmenu
 config ZEPHYR_ADI_MODULE
-	bool
-	default y
-menu "hal_afbr (/workdir/modules/hal/afbr)"
-osource "$(ZEPHYR_HAL_AFBR_KCONFIG)"
-config ZEPHYR_HAL_AFBR_MODULE
-	bool
-	default y
-
-config ZEPHYR_HAL_AFBR_MODULE_BLOBS
-	bool
-endmenu
+   bool
+   default y
+config ZEPHYR_ALTERA_MODULE
+   bool
+   default y
 menu "hal_ambiq (/workdir/modules/hal/ambiq)"
 osource "$(ZEPHYR_HAL_AMBIQ_KCONFIG)"
 config ZEPHYR_HAL_AMBIQ_MODULE
@@ -53,22 +41,13 @@ config ZEPHYR_HAL_AMBIQ_MODULE
 	default y
 endmenu
 config ZEPHYR_ATMEL_MODULE
-	bool
-	default y
-menu "hal_bouffalolab (/workdir/modules/hal/bouffalolab)"
-osource "$(ZEPHYR_HAL_BOUFFALOLAB_KCONFIG)"
-config ZEPHYR_HAL_BOUFFALOLAB_MODULE
-	bool
-	default y
-endmenu
+   bool
+   default y
 menu "hal_espressif (/workdir/modules/hal/espressif)"
 osource "/workdir/modules/hal/espressif/zephyr/Kconfig"
 config ZEPHYR_HAL_ESPRESSIF_MODULE
 	bool
 	default y
-
-config ZEPHYR_HAL_ESPRESSIF_MODULE_BLOBS
-	bool
 endmenu
 menu "hal_ethos_u (/workdir/modules/hal/ethos_u)"
 osource "$(ZEPHYR_HAL_ETHOS_U_KCONFIG)"
@@ -87,9 +66,6 @@ osource "$(ZEPHYR_HAL_INFINEON_KCONFIG)"
 config ZEPHYR_HAL_INFINEON_MODULE
 	bool
 	default y
-
-config ZEPHYR_HAL_INFINEON_MODULE_BLOBS
-	bool
 endmenu
 menu "hal_intel (/workdir/modules/hal/intel)"
 osource "/workdir/modules/hal/intel/zephyr/Kconfig"
@@ -98,61 +74,43 @@ config ZEPHYR_HAL_INTEL_MODULE
 	default y
 endmenu
 config ZEPHYR_MICROCHIP_MODULE
-	bool
-	default y
+   bool
+   default y
 menu "hal_nordic (/workdir/modules/hal/nordic)"
 osource "$(ZEPHYR_HAL_NORDIC_KCONFIG)"
 config ZEPHYR_HAL_NORDIC_MODULE
 	bool
 	default y
-
-config ZEPHYR_HAL_NORDIC_MODULE_BLOBS
-	bool
 endmenu
 config ZEPHYR_NUVOTON_MODULE
-	bool
-	default y
+   bool
+   default y
 menu "hal_nxp (/workdir/modules/hal/nxp)"
 osource "$(ZEPHYR_HAL_NXP_KCONFIG)"
 config ZEPHYR_HAL_NXP_MODULE
 	bool
 	default y
-
-config ZEPHYR_HAL_NXP_MODULE_BLOBS
-	bool
 endmenu
 config ZEPHYR_OPENISA_MODULE
-	bool
-	default y
+   bool
+   default y
 config ZEPHYR_QUICKLOGIC_MODULE
-	bool
-	default y
+   bool
+   default y
 config ZEPHYR_HAL_RENESAS_MODULE
-	bool
-	default y
-
-config ZEPHYR_HAL_RENESAS_MODULE_BLOBS
-	bool
+   bool
+   default y
 menu "hal_rpi_pico (/workdir/modules/hal/rpi_pico)"
 osource "$(ZEPHYR_HAL_RPI_PICO_KCONFIG)"
 config ZEPHYR_HAL_RPI_PICO_MODULE
 	bool
 	default y
 endmenu
-menu "hal_sifli (/workdir/modules/hal/sifli)"
-osource "$(ZEPHYR_HAL_SIFLI_KCONFIG)"
-config ZEPHYR_HAL_SIFLI_MODULE
-	bool
-	default y
-endmenu
 menu "hal_silabs (/workdir/modules/hal/silabs)"
-osource "$(ZEPHYR_HAL_SILABS_KCONFIG)"
+osource "/workdir/modules/hal/silabs/zephyr/Kconfig"
 config ZEPHYR_HAL_SILABS_MODULE
 	bool
 	default y
-
-config ZEPHYR_HAL_SILABS_MODULE_BLOBS
-	bool
 endmenu
 menu "hal_st (/workdir/modules/hal/st)"
 osource "$(ZEPHYR_HAL_ST_KCONFIG)"
@@ -160,18 +118,9 @@ config ZEPHYR_HAL_ST_MODULE
 	bool
 	default y
 endmenu
-config ZEPHYR_HAL_STM32_MODULE
-	bool
-	default y
-
-config ZEPHYR_HAL_STM32_MODULE_BLOBS
-	bool
-menu "hal_tdk (/workdir/modules/hal/tdk)"
-osource "$(ZEPHYR_HAL_TDK_KCONFIG)"
-config ZEPHYR_HAL_TDK_MODULE
-	bool
-	default y
-endmenu
+config ZEPHYR_STM32_MODULE
+   bool
+   default y
 menu "hal_telink (/workdir/modules/hal/telink)"
 osource "/workdir/modules/hal/telink/Kconfig"
 config ZEPHYR_HAL_TELINK_MODULE
@@ -179,53 +128,32 @@ config ZEPHYR_HAL_TELINK_MODULE
 	default y
 endmenu
 config ZEPHYR_TI_MODULE
-	bool
-	default y
-menu "hal_wch (/workdir/modules/hal/wch)"
-osource "$(ZEPHYR_HAL_WCH_KCONFIG)"
-config ZEPHYR_HAL_WCH_MODULE
-	bool
-	default y
-endmenu
+   bool
+   default y
 config ZEPHYR_HAL_WURTHELEKTRONIK_MODULE
-	bool
-	default y
+   bool
+   default y
 config ZEPHYR_XTENSA_MODULE
-	bool
-	default y
+   bool
+   default y
 menu "hostap (/workdir/modules/lib/hostap)"
 osource "$(ZEPHYR_HOSTAP_KCONFIG)"
 config ZEPHYR_HOSTAP_MODULE
 	bool
 	default y
 endmenu
+config ZEPHYR_LIBMETAL_MODULE
+   bool
+   default y
 menu "liblc3 (/workdir/modules/lib/liblc3)"
 osource "$(ZEPHYR_LIBLC3_KCONFIG)"
 config ZEPHYR_LIBLC3_MODULE
 	bool
 	default y
 endmenu
-config ZEPHYR_LIBMCTP_MODULE
-	bool
-	default y
-config ZEPHYR_LIBMETAL_MODULE
-	bool
-	default y
-menu "libsbc (/workdir/modules/lib/libsbc)"
-osource "$(ZEPHYR_LIBSBC_KCONFIG)"
-config ZEPHYR_LIBSBC_MODULE
-	bool
-	default y
-endmenu
 menu "littlefs (/workdir/modules/fs/littlefs)"
 osource "$(ZEPHYR_LITTLEFS_KCONFIG)"
 config ZEPHYR_LITTLEFS_MODULE
-	bool
-	default y
-endmenu
-menu "lora-basics-modem (/workdir/modules/lib/lora-basics-modem)"
-osource "$(ZEPHYR_LORA_BASICS_MODEM_KCONFIG)"
-config ZEPHYR_LORA_BASICS_MODEM_MODULE
 	bool
 	default y
 endmenu
@@ -236,7 +164,7 @@ config ZEPHYR_LORAMAC_NODE_MODULE
 	default y
 endmenu
 menu "lvgl (/workdir/modules/lib/gui/lvgl)"
-osource "/workdir/modules/lib/gui/lvgl/zephyr/Kconfig"
+osource "/workdir/modules/lib/gui/lvgl/Kconfig"
 config ZEPHYR_LVGL_MODULE
 	bool
 	default y
@@ -248,29 +176,17 @@ config ZEPHYR_MBEDTLS_MODULE
 	default y
 endmenu
 config ZEPHYR_MCUBOOT_MODULE
-	bool
-	default y
+   bool
+   default y
 config ZEPHYR_MIPI_SYS_T_MODULE
-	bool
-	default y
-menu "nanopb (/workdir/modules/lib/nanopb)"
-osource "$(ZEPHYR_NANOPB_KCONFIG)"
-config ZEPHYR_NANOPB_MODULE
-	bool
-	default y
-endmenu
-menu "nrf_wifi (/workdir/modules/lib/nrf_wifi)"
-osource "$(ZEPHYR_NRF_WIFI_KCONFIG)"
-config ZEPHYR_NRF_WIFI_MODULE
-	bool
-	default y
-
-config ZEPHYR_NRF_WIFI_MODULE_BLOBS
-	bool
-endmenu
+   bool
+   default y
+config ZEPHYR_NRF_HW_MODELS_MODULE
+   bool
+   default y
 config ZEPHYR_OPEN_AMP_MODULE
-	bool
-	default y
+   bool
+   default y
 menu "openthread (/workdir/modules/lib/openthread)"
 osource "$(ZEPHYR_OPENTHREAD_KCONFIG)"
 config ZEPHYR_OPENTHREAD_MODULE
@@ -295,15 +211,18 @@ config ZEPHYR_SEGGER_MODULE
 	bool
 	default y
 endmenu
-menu "trusted-firmware-a (/workdir/modules/tee/tf-a/trusted-firmware-a)"
-osource "$(ZEPHYR_TRUSTED_FIRMWARE_A_KCONFIG)"
-config ZEPHYR_TRUSTED_FIRMWARE_A_MODULE
-	bool
-	default y
-endmenu
+config ZEPHYR_TINYCRYPT_MODULE
+   bool
+   default y
 menu "trusted-firmware-m (/workdir/modules/tee/tf-m/trusted-firmware-m)"
 osource "$(ZEPHYR_TRUSTED_FIRMWARE_M_KCONFIG)"
 config ZEPHYR_TRUSTED_FIRMWARE_M_MODULE
+	bool
+	default y
+endmenu
+menu "trusted-firmware-a (/workdir/modules/tee/tf-a/trusted-firmware-a)"
+osource "$(ZEPHYR_TRUSTED_FIRMWARE_A_KCONFIG)"
+config ZEPHYR_TRUSTED_FIRMWARE_A_MODULE
 	bool
 	default y
 endmenu
@@ -319,6 +238,3 @@ config ZEPHYR_ZCBOR_MODULE
 	bool
 	default y
 endmenu
-config ZEPHYR_NRF_HW_MODELS_MODULE
-	bool
-	default y
