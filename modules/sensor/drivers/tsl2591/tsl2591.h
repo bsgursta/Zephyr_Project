@@ -6,7 +6,6 @@
 #include <zephyr/drivers/sensor.h>
 
 /* Register Macros*/
-//All 8-bits
 
 #define TSL2591_REG_ENABLE 0x00
 #define TSL2591_REG_CONFIG 0x01

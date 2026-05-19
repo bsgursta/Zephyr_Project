@@ -1,0 +1,6 @@
+name: adafruit_tsl2591
+build:
+  cmake: .
+  kconfig: Kconfig
+  settings:
+    dts_root: . #Looks for dts root with bindings

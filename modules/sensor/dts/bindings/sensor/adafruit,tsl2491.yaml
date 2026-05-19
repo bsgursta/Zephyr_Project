@@ -1,0 +1,12 @@
+description: 
+  Adafruit TSL2591 High Dynamic Range Digital Light Sensor
+    accessed through I2C bus.
+
+# Compatible string that matches the one in the DT sopurce and DT_DRV_COMPAT macro
+compatible: "adafruit_tsl2591"
+
+#include: 
+
+# Define node properties
+properties: 
+

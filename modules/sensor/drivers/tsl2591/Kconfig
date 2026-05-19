@@ -1,0 +1,7 @@
+# Create a new option in menuconfig
+config TSL2591
+    bool "TSL2591 Light Sensor"
+    default n
+    depends on # I2C must be enabled to let the sensor function #FINISH
+    help
+        Enable TSL2591 Light Sensor
