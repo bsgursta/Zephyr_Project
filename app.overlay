@@ -1,0 +1,18 @@
+/* Write the values that will be used for the drivers requested in the .yaml file */
+
+/* Create an alias for the i2c bus*/
+
+/ {
+    aliases {
+        /* The & tells the compiler not to create a new node look for the node elsewhere*/
+        light-sensor = &tsl2491;
+    };
+
+};
+
+&i2c0 {
+    tsl2491: tsl2491@29{ //Unit address that is the device address. Should match the reg property in hex
+        compatible = "adafruit_tsl2591"; //From the driver .yaml file
+        reg = <0x29>;
+    };
+};

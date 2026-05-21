@@ -3,10 +3,11 @@ description:
     accessed through I2C bus.
 
 # Compatible string that matches the one in the DT sopurce and DT_DRV_COMPAT macro
-compatible: "adafruit_tsl2591"
+compatible: "adafruit,tsl2591"
 
-#include: 
-
-# Define node properties
+include: i2c-device.yaml   # Inherits standard I2C properties like 'reg'
+                          # Found in the dts/bindings/i2c folder in zephyr tree
+# Define node properties from i2c or personal made
 properties: 
-
+# No need to list properties since we are just using "reg" which is defined
+ # in the i2c .yaml file (INHERITED)

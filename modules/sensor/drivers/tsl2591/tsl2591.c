@@ -1,11 +1,4 @@
-/*
-    Key components
-    1) Devicetree Binding -> describe hardware properties
-    2) Kconfig -> Enable/disable software features
-    3) Sensor Device API -> read sensor channels, get/set runtime attributes, enable/disable
-*/
-
-#define DT_DRV_COMPAT ams_tsl2591 // Tie to devicetree compatible node
+#define DT_DRV_COMPAT adafruit_tsl2591 // Tie to devicetree compatible node
 
 
 #include <errno.h>
@@ -17,6 +10,7 @@
 LOG_MODULE_REGISTER(tsl2591,CONFIG_SENSOR_LOG_LEVEL); //Enable logging at CONFIG_LOG_DEFAULT_LEVEL <- This is a Kconfig variable
 
 /* Forward Declarations */
+
 
 static int tsl2591_reg_read(const struct device *dev,
                             uint8_t reg,
@@ -67,13 +61,11 @@ int tsl2591_enable(const struct device *dev) {
 }
 
 static int tsl2591_init(const struct device *dev) {
-    //*dev is not suppose to be assigned, it's already initialized by Zephyr
-    //cast to sensor config, assume that *dev parameter is being populated by zephyr
+    //*dev is not suppose to be assigned, it's already initialized by Zephyr, like Linux DD
     const struct tsl2591_config *cfg = dev->config;
     int ret = 0;
     LOG_DBG("Initializing TSL2591 Sensor");
 
-    //Check that the device is ready
     if(!device_is_ready(cfg->i2c.bus)){
         LOG_ERROR("Bus device is not ready");
         return -ENODEV;

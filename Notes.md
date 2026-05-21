@@ -87,3 +87,7 @@
     - Shawn says after `dts/bindings/` it shouldn't matter
 - yaml file name doesn't matter, the **compatible** property does
 - For the zephyr "module" create the "zephyr" folder followed by the module.yaml file
+- The Zephyr struct device is found at /workdir/zephyr/include/zephyr/device.h
+    - "config" is the configuration data at build time
+    - "data" is what's modified at runtime
+    - "api" is the function implementing subsystem API
