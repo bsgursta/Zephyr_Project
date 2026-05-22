@@ -1,22 +1,24 @@
 #define DT_DRV_COMPAT adafruit_tsl2591 // Tie to devicetree compatible node
 
+/*https://docs.zephyrproject.org/latest/hardware/peripherals/sensor/index.html*/
 
 #include <errno.h>
 #include <zephyr/logging/log.h> 
 #include <zephyr/drivers/i2c.h>
+#include <zephyr/include/zephyr/drivers/sensor.h>
 
 #include "tsl2591.h"
 
 LOG_MODULE_REGISTER(tsl2591,CONFIG_SENSOR_LOG_LEVEL); //Enable logging at CONFIG_LOG_DEFAULT_LEVEL <- This is a Kconfig variable
 
-/* Forward Declarations */
 
+/* Forward Declarations */
 
 static int tsl2591_reg_read(const struct device *dev,
                             uint8_t reg,
                             uint16_t *val);
 
-int tsl2591_reg_write_8bit(const struct device *dev, 
+static int tsl2591_reg_write(const struct device *dev, 
                             uint8_t reg, 
                             uint8_t val);
 
@@ -25,6 +27,7 @@ static int tsl2591_init(const struct device *dev);
 
 /* Private Functions */
 
+/* Read register values (8-bit)*/
 static int tsl2591_reg_read(const struct device *dev,
                             uint8_t reg,
                             uint16_t *val)
@@ -40,8 +43,9 @@ static int tsl2591_reg_read(const struct device *dev,
 	return ret;
 }
 
-//Write to 8-bit registers, the TSL only has 8 bit registers
-int tsl2591_reg_write_8bit(const struct device *dev, 
+
+/*Write to registers (8-bit) */
+int tsl2591_reg_write(const struct device *dev, 
                             uint8_t reg, 
                             uint8_t val) 
 {
@@ -55,14 +59,18 @@ int tsl2591_reg_write_8bit(const struct device *dev,
 
 }
 
-//Write to enable register
+
+/* Enable procedure for TSL2591 sensor*/
 int tsl2591_enable(const struct device *dev) {
     return tsl2591_reg_write_8bit(dev,TSL2591_REG_ENABLE,0x01);
 }
 
+/* Entry function for driver initialization */
 static int tsl2591_init(const struct device *dev) {
+
     //*dev is not suppose to be assigned, it's already initialized by Zephyr, like Linux DD
     const struct tsl2591_config *cfg = dev->config;
+
     int ret = 0;
     LOG_DBG("Initializing TSL2591 Sensor");
 
@@ -89,14 +97,25 @@ static int tsl2591_init(const struct device *dev) {
 
 }
 
+
 /* Public Functions */
 
-//Fetch data from the sensor
-static int tsl2591_sample_fetch(const struct device *dev, enum sensor_channel chan) {
+static int tsl2591_submit(const struct device *sensor, struct rtio_iodev_sqe *sqe){
 
 }
 
-//get data from internal buffer
-static int tsl2591_channel_get() {
-    
+static int tsl2591_decoder(const struct device *dev, const struct sensor_decoder_api **api) {
+
 }
+
+
+/* Devicetree Handling */
+static const struct sensor_driver_api {
+    .attr_set = NULL; // Change sensor settings
+    .attr_get = NULL; //Read back sensor settings
+    .trigger_set = NULL; //For GPIO alert triggers
+    .sample_fetch = NULL;
+    .channel_get = NULL;
+    .get_decoder = tsl2591_decoder;
+    .submit = tsl2591_submit;
+};

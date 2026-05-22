@@ -91,3 +91,10 @@
     - "config" is the configuration data at build time
     - "data" is what's modified at runtime
     - "api" is the function implementing subsystem API
+- `sensor.h` is found at zephyr/include/zephyr/drivers/sensor.h
+- `k_work` is a a workqueue kernel structure
+- Fetch/Get APIs are bound to be depricated. Use read/decode instead since 3.6.
+    - Read/Decode is asynch and uses Real-Time I/O
+    - Aynch means the hardware completes the data collection without the CPU so that the CPU can visit when available.
+- Have the data and config structs in .h with macros. Apis and everything else in .c
+- The driver only uses the functions in the .c file so no reason to put forward declarations in .h file
